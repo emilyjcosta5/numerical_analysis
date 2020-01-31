@@ -15,7 +15,10 @@ function newtons_method(f::Function, p_0::Number,
     return p
 end
 
-println(newtons_method(x -> x^3-2*x^2-5, 1))
+println(newtons_method(x -> x^3 - 2*x^2 - 5, 1))
   
 # 2.4 1.a.
 println(newtons_method(x -> (x^2) - 2*x*2.7183^(-x) + 2.7183^(-2x), 0.5))
+
+# 2.6 1.a.
+println(newtons_method(x -> (x^3) - 2*x^2 - 5, 20))
