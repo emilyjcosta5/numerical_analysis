@@ -24,10 +24,14 @@ def fixed_point(p_0, f, E, N_0):
         Approximate solution.
     '''
     p = 0
-    for n in N_0:
-        p = f(p_0)
+    print(p)
+    for n in range(0, N_0):
+        print(abs(p-p_0))
         if(abs(p-p_0)<E):
+            print('done')
             return p
+        print("Iteration ", n+1, " is ", p_0)
+        p = f(p_0)
         p_0 = p
     print('No solution found.')
     return None
@@ -36,11 +40,27 @@ def newtons_method(f, p_0, E, N):
     p = p_0
     n = 1
     for n in range(0,N):
+        # print(p)
         p = p_0 - f(p_0)/misc.derivative(f, p_0)
         if abs(p-p_0)<E:
             break
         p_0 = p
     return p_0
+
+def bisection_method(f, a, b, E, N_0):
+    fa = f(a)
+    p = 0
+    for n in range(0, N_0):
+        p = a + (b - a) / 2
+        fp = f(p)
+        if fp == 0 or fp < E:
+            return p
+        if fa*fp > 0:
+            a = p 
+            fa = fp
+        else:
+            b = p
+    return p
 
 def f(x):
     return x**3 + x**2 + 2*x 
@@ -48,11 +68,11 @@ def f(x):
 def g(x):
     return exp(x) - x - 1
 
-def g_1(x);
+def g_1(x):
     return (1/2) * (x**3 + 1)
 
 def g_2(x):
-    return (2/x) - (1/(x^2))
+    return (2/x) - (1/(x**2))
 
 if __name__=='__main__':
     # Standardize parameters
@@ -63,10 +83,13 @@ if __name__=='__main__':
     N = 1000
 
     # 1. a.
-    print(fixed_point(p_0, g_1, TOL, N_0))
-    print(fixed_point(p_0, g_2, TOL, N_0))
+    print("1.a.i.: ")
+    print("Solution: ", fixed_point(p_0, g_1, TOL, N))
+    print("1.a.ii.: ")
+    print("Solution: ", fixed_point(p_0, g_2, TOL, N))
 
     # 3. 1. a. 
+    print("")
     print(newtons_method(f, fp, E, N))
     # b.
     print(newtons_method(g, fp, E, N))
