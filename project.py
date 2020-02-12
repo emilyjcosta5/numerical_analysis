@@ -1,3 +1,5 @@
+# Written by: Emily Costa
+
 from scipy import misc
 from math import exp
 
@@ -14,7 +16,7 @@ def fixed_point(p_0, f, E, N_0):
     f: function
         Function to find fixed-points in.
     E: float
-        Tolerance.
+        Epsilon, threshold for error tolerance analysis.
     N_0: int
         Maximum number of iterations.
 
@@ -37,6 +39,26 @@ def fixed_point(p_0, f, E, N_0):
     return None
 
 def newtons_method(f, p_0, E, N):
+    '''
+    Finds a zero of a function determined by Newton's 
+    Method.
+
+    Parameters
+    ----------
+    f: function
+        Function to find zeros in.
+    p_0: float
+        Initial approximation to zero.
+    E: float
+        Epsilon, threshold for error tolerance analysis.
+    N_0: int
+        Maximum number of iterations.
+
+    Returns
+    -------
+    p_0: float
+        A zero of the function determined by method.
+    '''
     p = p_0
     n = 1
     for n in range(0,N):
@@ -48,6 +70,26 @@ def newtons_method(f, p_0, E, N):
     return p_0
 
 def bisection_method(f, a, b, E, N_0):
+    '''
+    Finds a zero of a function determined by Newton's 
+    Method.
+
+    Parameters
+    ----------
+    f: function
+        Function to find zeros in.
+    a, b: floats
+        Range for finding the zero of the function.
+    E: float
+        Epsilon, threshold for error tolerance analysis.
+    N_0: int
+        Maximum number of iterations.
+
+    Returns
+    -------
+    p_0: float
+        A zero of the function determined by method.
+    '''
     fa = f(a)
     p = 0
     for n in range(0, N_0):
