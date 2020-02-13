@@ -26,15 +26,12 @@ def fixed_point(p_0, f, E, N_0):
         Approximate solution.
     '''
     p = 0
-    print(p)
     for n in range(0, N_0):
-        print(abs(p-p_0))
-        if(abs(p-p_0)<E):
-            print('done')
-            return p
-        print("Iteration ", n+1, " is ", p_0)
+        print("Iteration ", n, " is ", p_0)
         p = f(p_0)
         p_0 = p
+        if(abs(p-p_0)<E):
+            return p
     print('No solution found.')
     return None
 
@@ -60,9 +57,8 @@ def newtons_method(f, p_0, E, N):
         A zero of the function determined by method.
     '''
     p = p_0
-    n = 1
     for n in range(0,N):
-        # print(p)
+        print("Iteration ", n, " is ", p)
         p = p_0 - f(p_0)/misc.derivative(f, p_0)
         if abs(p-p_0)<E:
             break
@@ -93,16 +89,19 @@ def bisection_method(f, a, b, E, N_0):
     fa = f(a)
     p = 0
     for n in range(0, N_0):
+        print("Iteration ", n, " is ", p)
         p = a + (b - a) / 2
         fp = f(p)
-        if fp == 0 or fp < E:
+        if fp == 0 or b-a < E:
             return p
-        if fa*fp > 0:
+        elif fa*fp > 0:
             a = p 
             fa = fp
         else:
             b = p
-    return p
+    return None
+
+#def secant_method
 
 def f(x):
     return x**3 + x**2 + 2*x 
@@ -130,15 +129,22 @@ if __name__=='__main__':
     print("1.a.ii.: ")
     print("Solution: ", fixed_point(p_0, g_2, TOL, N))
 
+
+    print("Newton's Method")
     # 3. 1. a. 
-    print("")
-    print(newtons_method(f, fp, E, N))
+    print("a.")
+    print("Final solution is ", newtons_method(f, fp, E, N))
     # b.
-    print(newtons_method(g, fp, E, N))
+    print("b.")
+    print("Final solution is ", newtons_method(g, fp, E, N))
 
+    print("Bisection Method")
     # 2. a.
-
+    print("a.")
+    print("Final solution is ", bisection_method(f, -2, 4, E, N))
     # b.
+    print("b.")
+    print("Final solution is ", bisection_method(g, -2, 4, E, N))
 
     # 3. a. 
 
