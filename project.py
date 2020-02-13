@@ -2,6 +2,7 @@
 
 from scipy import misc
 from math import exp
+import pandas as pd
 
 def fixed_point(p_0, f, E, N_0):
     '''
@@ -29,9 +30,9 @@ def fixed_point(p_0, f, E, N_0):
     for n in range(0, N_0):
         print("Iteration ", n, " is ", p_0)
         p = f(p_0)
-        p_0 = p
         if(abs(p-p_0)<E):
             return p
+        p_0 = p
     print('No solution found.')
     return None
 
