@@ -23,7 +23,7 @@ function newtons_method(f::Function, fp::Function, p_0::Number,
                    E::AbstractFloat=1e-5, N_0::Integer=10)
     p = p_0
     n = 1
-    while(n<N_0)&&(abs(p-p_0)>E)
+    while(n<N_0)&&(abs(p-p_0)<E)
         fpn = f(p_0)
         dfpn = fp(p_0)
         p = p_0 - (fpn / dfpn) 

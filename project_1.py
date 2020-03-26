@@ -110,7 +110,7 @@ def bisection_method(f, a, b, E, N_0):
         A zero of the function determined by method.
     '''
     fa = f(a)
-    p = 0
+    p = 1
     for n in range(1, N_0):
         print("Iteration ", n, " is ", p)
         p = a + (b - a) / 2
@@ -180,6 +180,7 @@ if __name__=='__main__':
     a = -2
     b = 4
 
+    # Print all answers to project.
     # 1. a.
     print("1.a.i.: ")
     print("Solution: ", fixed_point(p_0, g_1, TOL, N))

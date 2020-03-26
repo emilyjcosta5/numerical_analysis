@@ -18,6 +18,6 @@ function bisection_method(f::Function, a::Number, b::Number,
     return p 
 end
 
-bisection_method(p -> p^3-p-1,1,2)
+bisection_method(p -> p^2 - 4,1,2)
 
 
