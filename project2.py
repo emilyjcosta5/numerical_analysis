@@ -140,3 +140,19 @@ N=4:  (-15.398065900741308, 1.1840887708787875)
 N=8:  (-14.530482697946404, 0.3165055680838833)
 N=16:  (-14.294200161426023, 0.08022303156350219)
 '''
+
+# Conclusions.
+'''
+The numerical method that had the best performace was Composite
+Simpson's rule for integration. This method had the closest 
+approximation when I set the intervals to four, six, and
+sixteen. It also converged the most, as the intervals increased.
+
+The performance of the Composite Trapezoidal rule of integration
+was the lowest. When the interval was set to four, the absolute
+error was as high at two and a half. 
+
+Overall, I would use Simpson's rule. It was relatively easy to 
+implement in code (and vectorize it to avoid having complicated
+for-loops).
+'''
